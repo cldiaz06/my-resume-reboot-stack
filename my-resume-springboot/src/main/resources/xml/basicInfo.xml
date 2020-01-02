@@ -1,0 +1,11 @@
+<basicInfo>
+	<firstName>Christopher</firstName>
+	<lastName>Diaz</lastName>
+	<city>Oak Park</city> 
+	<state>IL</state>
+	<postalcode>60301</postalcode>
+	<title>Software Engineer</title>
+	<phone>773-732-4404</phone>
+	<email>cldiaz1066@yahoo.com</email>
+	<gitUrl>git@gitlab.com:cldiaz06/myResumeRest.git</gitUrl>
+</basicInfo>

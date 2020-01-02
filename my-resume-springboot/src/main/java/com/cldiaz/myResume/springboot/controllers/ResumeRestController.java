@@ -1,0 +1,106 @@
+package com.cldiaz.myResume.springboot.controllers;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.cldiaz.myResume.springboot.config.ConfigProperties;
+import com.cldiaz.myResume.springboot.interfaces.GetResume;
+import com.cldiaz.myResume.springboot.interfaces.PdfResumeGenerator;
+import com.cldiaz.myResume.springboot.interfaces.SendEmailService;
+import com.cldiaz.myResume.springboot.models.BasicInfo;
+import com.cldiaz.myResume.springboot.models.Email;
+import com.cldiaz.myResume.springboot.models.Resume;
+import com.itextpdf.text.DocumentException;
+
+@RestController
+@RequestMapping("/rest")
+public class ResumeRestController {
+
+	private GetResume getResume;
+	private Resume res;
+
+	private SendEmailService sendEmailService;
+	private PdfResumeGenerator pdfResumeGenerator;
+
+	@Autowired
+	private ConfigProperties config;
+	
+	@Autowired
+	public void setGetResume(ApplicationContext context) {
+		if(config.getFileType().equals("xml")) {
+			getResume = (GetResume) context.getBean("xmlGetResume");
+		} else {
+			getResume = (GetResume) context.getBean("jsonGetResume");
+		}
+	}
+	
+	@Autowired
+	public void setPdfResumeGenerator(ApplicationContext context) {
+		if(config.getTemplate().equals("standard")) {
+			pdfResumeGenerator = (PdfResumeGenerator) context.getBean("standard");
+		} else {
+			pdfResumeGenerator = (PdfResumeGenerator) context.getBean("standard");
+		}
+	}
+	
+	@Autowired
+	public void setEmailService(ApplicationContext context) {
+		sendEmailService = (SendEmailService) context.getBean("prod");
+	}
+	
+	
+	@ModelAttribute("resume")
+	public void setResume(Resume res) {
+		this.res = getResume.getResume(false);
+	}
+	
+	@GetMapping(value="/basicInfo")
+	public BasicInfo getBasicInfo() {
+		return res.getBasicInfo();
+	}
+	
+	@CrossOrigin(origins="http://localhost:3000")
+	@GetMapping(value="/")
+	public Resume getResumeDate() {
+		return res;
+	}
+	
+	@GetMapping(value ="/getResumePdf", produces = MediaType.APPLICATION_PDF_VALUE)
+	public ResponseEntity<InputStreamResource> getResumePdf() throws IOException, DocumentException {
+		
+		ByteArrayInputStream bis = new ByteArrayInputStream(new byte[0]);
+		
+		bis = pdfResumeGenerator.buildResumePdfRest(res);
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Content-Disposition", "inline; filename=resume.pdf");
+			
+		return ResponseEntity
+					.ok()
+					.headers(headers)
+					.contentType(MediaType.APPLICATION_PDF)
+					.body(new InputStreamResource(bis));
+
+	}
+	
+	@GetMapping("/sendEmail")
+	public ResponseEntity<Email> sendEmail(@RequestBody Email email){
+		return ResponseEntity.ok().body(email);
+	}
+	
+	
+	
+}

@@ -1,0 +1,59 @@
+
+	[		 
+		 	  {
+				"skill" : "TSQL",
+				"year":"5"
+			  },
+			  {
+				"skill" : "Delphi",
+				"year":"3"
+			  },
+			  {
+				"skill" : "Java",
+				"year":"2.5"
+			  },
+			  {
+				"skill" : "C#",
+				"year":"3.5"
+			  },
+			  {
+				"skill" : "Spring Boot/MVC",
+				"year":"2.0"
+			  },
+			  {
+				"skill" : "Asp.net 4.0 MVC/Entity/Web Forms",
+				"year":"3.0"
+			  },
+			  {
+				"skill" : "Git",
+				"year":"2.0"
+			  },
+			  {
+				"skill" : "Maven",
+				"year":"1.0"
+			  },
+			  {
+				"skill" : "Ant",
+				"year":"1.0"
+			  },
+			  {
+				"skill" : "Gradle",
+				"year":".5"
+			  },
+			   {
+				"skill" : "ZK Boss",
+				"year":"1"
+			  },
+			   {
+				"skill" : "Bootstrap 3/4",
+				"year":".5"
+			  },
+			   {
+				"skill" : "Angular JS",
+				"year":".25"
+			  },
+			  {
+				"skill" : "React JS",
+				"year":".25"
+			  }
+	]

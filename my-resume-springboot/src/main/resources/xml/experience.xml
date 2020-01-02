@@ -1,0 +1,36 @@
+<experiences>
+	<experience>
+		<startDate>2013</startDate>
+		<endDate>Current</endDate>
+		<title>Software Engineer</title>
+		<city>Bedford Park</city>
+		<company>Cintas Uniform Corp</company>
+		<state>IL</state>
+		<summary>Direct Sale and Rent Business goods such as Uniforms and floor mats</summary>
+		<projDetails>
+			<projDetail>Delphi switch to XE5/FireDac - dur:4 months</projDetail>
+			<projDetail>Hybris Ecommerce go Live - dur: 1 yr, 2 months</projDetail>
+			<projDetail>Migrate Customers to Hybris - ongoing</projDetail>
+			<projDetail>Substitute old product for new product - dur: 2 months</projDetail>
+		</projDetails>
+		<appSupDetails>
+			<appSuppDetail>Triage reported issues to determine root cause.</appSuppDetail>
+			<appSuppDetail>if issue requires data change, aquire approval to make corrections on database.</appSuppDetail>
+			<appSuppDetail>If root issue requires code change, request is submitted to business and scheduled.</appSuppDetail>
+			<appSuppDetail>For code changes, we build, compile, and deploy to test environment for unit testing.</appSuppDetail>
+			<appSuppDetail>After unit and regression testing, change is promoted to preprod for business validations.</appSuppDetail>
+			<appSuppDetail>Once business approves, change is included into monthly deployment package.</appSuppDetail>
+			<appSuppDetail>Supported apps include desktop Delphi based, .Net 4.0 services, MsSQL 2008 R2 DB, and Hybris.</appSuppDetail>
+			<appSuppDetail>Recently have started direct support for the Hybris platform.</appSuppDetail>
+		</appSupDetails>
+		<genDutyDetails>
+			<genDutyDetail>Triage reported issues to determine root cause.</genDutyDetail>
+			<genDutyDetail>Based on those findings, plan out various solutions and report them to business.</genDutyDetail>
+			<genDutyDetail>Leading to deployment, work with change management on working thru process for deployment signoff.</genDutyDetail>
+			<genDutyDetail>Coordinate with other system engineers to build and implement solution.</genDutyDetail>
+			<genDutyDetail>Work with business partners to develop and automate processes to meet requirements.</genDutyDetail>
+			<genDutyDetail>Work with senior engineer to ensure deployment folder is prepared, with includes backing up changes.</genDutyDetail>
+			<genDutyDetail>If necessary, develop, test and run SQL scripts for various tasks that business cannot complete.</genDutyDetail>
+		</genDutyDetails>
+	</experience>
+</experiences>

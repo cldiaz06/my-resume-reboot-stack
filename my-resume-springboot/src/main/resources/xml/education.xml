@@ -1,0 +1,16 @@
+<educations>
+	<education>
+		<startDate>2006</startDate>
+		<endDate>2012</endDate>
+		<schoolName>Illinois State University</schoolName>
+		<location>Normal, IL</location>
+		<achievement>Bachelor of Science: Computer Systems Technology</achievement>
+	</education>
+	<education>
+		<startDate>2002</startDate>
+		<endDate>2006</endDate>
+		<schoolName>St.Patrick High School</schoolName>
+		<location>Chicago, IL</location>
+		<achievement>Diploma</achievement>
+	</education>
+</educations>

@@ -1,0 +1,52 @@
+[		 
+	{
+	    "startDate":"2013",
+	    "endDate":"Current",
+	    "title":"Software Engineer",
+	    "city":"Bedford Park",
+	    "company":"Cintas Uniform Corp",
+	    "state": "IL",
+	    "summary":"Direct Sale and Rent Business goods such as Uniforms & floor mats",
+        "projDetails":["Delphi switch to XE5/FireDac - dur:4 months",
+        	           "Hybris (Java/Spring Mvc v4.0) Ecommerce go Live - dur: 1 yr, 2 months", 
+        	           "Migrate Customers to Hybris - ongoing",
+        	           "Order Issue Rpt w/ release funct. - 2 months",
+        	           "Add new fields to Hybris reporting, which required .net, sql, and java changes - 2 months",
+        	           "Added custom controls to Hybris, with required .net, sql, & delphi changes - 1 month"
+        	          ],
+        "appSupDetails":["Triage reported issues to determine root cause",
+        				  "If issue requires data change, aquire approval to make corrections on database.",
+        				  "If root issue requires code change, request is submitted to business and scheduled.",
+        				  "For code changes, we build, compile, and deploy to test environment for unit testing.",
+        				  "After unit and regression testing, change is promoted to preprod for business validations.",
+        				  "Once business approves, change is included into monthly deployment package.",
+        				  "Supported apps include desktop Delphi based, .Net 4.0 services, MsSQL 2008 R2 DB, and Hybris."
+        				],
+        "genDutyDetails":["Triage reported issues to determine root cause.",
+        				  "Based on those findings, plan out various solutions and report them to business.",
+        				  "Leading to deployment, work with change management on working thru process for deployment signoff.",
+        				  "Coordinate with other system engineers to build and implement solution.",
+        				  "Work with business partners to develop and automate processes to meet requirements.",
+        				  "Work with senior engineer to ensure deployment folder is prepared, with includes backing up changes.",
+        				  "If necessary, develop, test and run SQL scripts for various tasks that business cannot complete."
+        				 ]
+    },{
+        "startDate":"2017",
+        "endDate":"Current",
+        "title":"Full Stack Engineer",
+        "city": " Oak Park",
+        "company": " Self-Training",
+        "state": " IL",
+        "summary":" Personal projects for learning, and improving development skills.",
+        "projDetails":[" myResumeRest - Spring MVC and Boot application with PDF Generator - dur: 2 months",
+                       " web-stock-quote - Spring Webflux demo - dur: 1 month", 
+                       " MeanStack_intro - MEAN stack posting app - dur: 4 months",
+                       " ResumeGenerator - Java 8 based app as part of myResumeRest project - dur: 4 months",
+                       " Hamburger_builder_app - React based app -  dur: Current" 
+                      ],
+        "appSupDetails":["myResumeRest - next step is add security and support  for the Rest fuctionality.",
+                        "As well, as add myResumeRest to either Docker/Kubernete container, and host in cloud"
+                        ],
+        "genDutyDetails":["Continuously improving upon and add new skills in regards to Software Development."]
+    }		  
+]

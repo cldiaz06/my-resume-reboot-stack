@@ -1,0 +1,35 @@
+
+	[		 
+		 	  {
+				"header" : "Languages",
+				"detail":"TSql, Delphi, Java, C#, Python, ASP,Html, Javascript, XML, JSON"
+			  },
+			  {
+				 "header" : "Backend (Yr)",
+				 "detail" : "SQL (5), ASP.net 4.0: MVC, Web Forms & Entity(3) ,Spring MVC & Boot(2)"
+			  },
+			  {
+				  "header" : "Frontend (Yr)",
+				  "detail" : "Bootstrap 4 (.5), Angular JS (1), ZK (.5), React (.5), Vue (.5)"
+			  },
+			  {
+				  "header" : "OS",
+				  "detail" : "Windows XP/7/10/Server 2008/12, Ubuntu"
+			  },
+			  {
+				  "header" : "CI/CD",
+				  "detail" : "GitLab, GitHub, Sourcetree, Borland Starteam, Maven, Ant, Gradle"
+			  },
+			  {
+				  "header" : "Workstation",
+				  "detail" : "MsSQL Mgmt Studio 2008R2/2012, MySQL, Hybris, IBM AS400, VirtualBox, Postman, Beyond Compare, SoapUI, Mongo Compass"
+			  },
+			  {
+				  "header" : "Apps/Services",
+				  "detail" : "Visual Studio 2008/17, Eclipse Mars/Oxygen, Visual Studio Code, Notepad++, Delphi XE5, Atom, Anaconda, Intellij IDEA, Tomcat"
+			  },
+			  {
+				  "header" : "Hardware",
+				  "detail" : "RJ-45 Cabling, Cisco RIP/IGRP/EIGRP, SATA/PATA replacement, PCI Memory"
+			  }
+	]

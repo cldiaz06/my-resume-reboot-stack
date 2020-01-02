@@ -1,0 +1,30 @@
+<skills>
+	<skill>
+		<header>Languages</header>
+		<detail>TSql, Delphi, Java, C#, Python, ASP, Html, Javascript, XML, JSON</detail>
+	</skill>
+	<skill>
+		<header>Frameworks</header>
+		<detail>Spring MVC 3/4/5, Spring Boot, ASP.net 4.0: MVC/Web Forms/Entity</detail>
+	</skill>
+	<skill>
+		<header>OS</header>
+		<detail>Windows XP/7/10/Server 2008/12, Ubuntu</detail>
+	</skill>
+	<skill>
+		<header>SCM</header>
+		<detail>GitLab, GitHub, Sourcetree, Borland Starteam, Beyond Compare, Jenkins</detail>
+	</skill>
+	<skill>
+		<header>Workstation</header>
+		<detail>MsSQL 2008R2/2012, Tomcat 7/9, MySQL, Hybris 5.2, VirtualBox, Postman</detail>
+	</skill>
+	<skill>
+		<header>Apps/Services</header>
+		<detail>Visual Studio 2008/17, Eclipse Mars/Oxygen, Visual Studio Code, Notepad++, Delphi XE5</detail>
+	</skill>
+	<skill>
+		<header>Hardware</header>
+		<detail>RJ-45 Cabling, Cisco RIP/IGRP/EIGRP</detail>
+	</skill>
+</skills>
