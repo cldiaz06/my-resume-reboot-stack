@@ -1,5 +1,10 @@
 package com.cldiaz.myResume.springboot.model.education;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,6 +16,7 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class Education {
 
 	private String startDate;
@@ -18,6 +24,9 @@ public class Education {
 	private String schoolName;
 	private String location;
 	private String achievement;
+	
+	@JsonProperty("courses")
+	private Courses courses;
 	
 //	public Education() {}
 //	

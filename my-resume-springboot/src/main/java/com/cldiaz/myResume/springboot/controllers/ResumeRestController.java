@@ -2,6 +2,7 @@ package com.cldiaz.myResume.springboot.controllers;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -20,6 +21,7 @@ import com.cldiaz.myResume.springboot.config.ConfigProperties;
 import com.cldiaz.myResume.springboot.interfaces.GetResume;
 import com.cldiaz.myResume.springboot.interfaces.PdfResumeGenerator;
 import com.cldiaz.myResume.springboot.interfaces.SendEmailService;
+import com.cldiaz.myResume.springboot.model.education.Education;
 import com.cldiaz.myResume.springboot.models.BasicInfo;
 import com.cldiaz.myResume.springboot.models.Email;
 import com.cldiaz.myResume.springboot.models.Resume;
@@ -70,6 +72,11 @@ public class ResumeRestController {
 	@GetMapping(value="/basicInfo")
 	public BasicInfo getBasicInfo() {
 		return res.getBasicInfo();
+	}
+	
+	@GetMapping(value="/edu")
+	public ArrayList<Education> getEdu() {
+		return res.getEducation();
 	}
 	
 	@CrossOrigin(origins="http://localhost:3000")
