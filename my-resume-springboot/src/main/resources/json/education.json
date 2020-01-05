@@ -1,45 +1,63 @@
 [		 			
 	  	{
-			"startDate" : "2006",
-			"endDate" : "2012",
-			"schoolName" : "Illinois State University",
-			"location" : "Normal, IL",
-			"achievement" : "Bachelor of Science: Computer Systems Technology",
-			"courses":{"course":[{
-								  "name":"Math",
-								  "duration":"6 months",
-								  "description":"math",
-	                              "completed":true			
-								},
-								{
-								  "name":"english",
-								  "duration":"6 months",
-								  "description":"reading",
-								  "completed":true		
-								}
-							]
-						}
-		  },
-		  {
 			"startDate" : "2002",
 			"endDate" : "2006",
 			"schoolName" : "St.Patrick High School",
 			"location" : "Chicago, IL",
-			"achievement" : "Diploma",
-			"courses":{"course":[{
-								  "name":"Math",
+			"achievement" : "Diploma"
+	       },
+	  	{
+			"startDate" : "2006",
+			"endDate" : "2012",
+			"schoolName" : "Illinois State University",
+			"location" : "Normal, IL",
+			"achievement" : "Bachelor of Science: Computer Systems Technology"
+		  },
+	       {
+	       	"startDate" : "2017",
+			"endDate" : "current",
+			"schoolName" : "Udemy",
+			"location" : "Online",
+			"achievement" : "Projects completed",
+			"courses":{"course":[
+								 {
+								  "name":"Java Programming Masterclass by Tim Buchalka",
+								  "url":"https://www.udemy.com/course/java-the-complete-java-developer-course/l",
+								  "duration":"8 months",
+								  "description":"Refresh existing Java skills, along with new skills with Java 8",
+								  "completed":false			
+			  					 },
+								 {
+								  "name":"Spring & Hibernate for beginners by Chad Darby",
+								  "url":"https://www.udemy.com/course/spring-hibernate-tutorial/",
 								  "duration":"6 months",
-								  "description":"math",
+								  "description":"Intro to Spring framework and Hibernate",
 								  "completed":true			
 			  					 },
 			  					 {
-								  "name":"english",
-				                  "duration":"6 months",
-				                  "description":"reading",
-				                  "completed":true		
+								  "name":"Angular & nodeJS - Mean stack by Max Schwarzmuller",
+								  "url":"https://www.udemy.com/course/angular-2-and-nodejs-the-practical-guide/",
+								  "duration":"4 months",
+								  "description":"Intro MEAN stack & Angular JS.",
+								  "completed":false		
+			                     },
+			                     {
+								  "name":"React- Complete Guide by Max Schwarzmuller",
+								  "url":"https://www.udemy.com/course/react-the-complete-guide-incl-redux/",
+								  "duration":"4 months",
+								  "description":"Build App using React with Firebase backend",
+								  "completed":false		
+			                     },
+			                     {
+								  "name":"Udemy: Microservice w/ Spring Boot & Spring Cloud",
+								  "url":"https://www.udemy.com/course/microservices-with-spring-boot-and-spring-cloud/",
+								  "duration":"4 months",
+								  "description":"Intro microservices using Spring Framework",
+								  "completed":true		
 			                     }
-		                        ]
-	                 }
+								]
+					  }
+	       
 	       }
 			
 ]

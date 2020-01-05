@@ -9,6 +9,7 @@ import java.util.Date;
 import org.springframework.stereotype.Service;
 
 import com.cldiaz.myResume.springboot.interfaces.PdfResumeGenerator;
+import com.cldiaz.myResume.springboot.model.education.Course;
 import com.cldiaz.myResume.springboot.model.education.Education;
 import com.cldiaz.myResume.springboot.model.experience.Experience;
 import com.cldiaz.myResume.springboot.model.skill.Skills;
@@ -27,6 +28,7 @@ import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPCellEvent;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfTemplate;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -76,9 +78,7 @@ public class StandardResume implements PdfResumeGenerator {
 		addEducation(document, resume.getEducation());
 		
 		addReference(document, writer);
-		
-		
-		
+
 		System.out.println("PDF file Created:" + today);
 	}
 	
@@ -108,7 +108,7 @@ public class StandardResume implements PdfResumeGenerator {
 		PdfPCell phone = new PdfPCell(getCell(basicInfo.getPhone(), Normal_Font));
 		PdfPCell email = new PdfPCell(getCell(basicInfo.getEmail(), Normal_Font));
 		PdfPCell git_url = new PdfPCell(getCell(basicInfo.getGitUrl(), Normal_Font));
-		
+
 		rightHeader.addCell(city);
 		rightHeader.addCell(postal);
 		rightHeader.addCell(phone);
@@ -167,9 +167,9 @@ public class StandardResume implements PdfResumeGenerator {
 			   ArrayList<String> pro = temp.getProjDetails();
 			   ArrayList<String> app = temp.getAppSupDetails();
 			   
-			   createList(experienceSet, gen, "General Duties", false);
-			   createList(experienceSet, pro, "Projects", false);
-			   createList(experienceSet, app, "App. Support:", true);
+			   createList(experienceSet, gen, " General Duties", false);
+			   createList(experienceSet, pro, " Projects", false);
+			   createList(experienceSet, app, " App. Support:", true);
 
 		}
 		
@@ -178,6 +178,7 @@ public class StandardResume implements PdfResumeGenerator {
 
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public void addEducation(Document document, ArrayList<Education> education) throws DocumentException {
 		addEmptyLine(document, 5);
@@ -206,6 +207,20 @@ public class StandardResume implements PdfResumeGenerator {
 			   eduSet.addCell(duration);
 			   //eduSet.addCell(school);
 			   eduSet.addCell(detailCell);
+			   
+			   if(!(temp.getCourses() == null)) {
+				   System.out.println("adding course");
+				   ArrayList<String> courseList = new ArrayList<String>();
+				   
+				   for(Course classtext: temp.getCourses().getCourse()) {
+					   String courseDesc;
+					   courseDesc = classtext.getName() + "- " + classtext.getDescription() + " - " + classtext.getDuration();
+					   System.out.println(courseDesc);
+					   courseList.add(courseDesc);
+				   }
+				   
+				   createList(eduSet, courseList, " Courses ", false);
+			   }
 		}
 		
 		eduSet.setSpacingAfter(30f);
@@ -220,6 +235,14 @@ public class StandardResume implements PdfResumeGenerator {
 	   
 	public static PdfPCell getCell(String text, Font font) {
 		   PdfPCell cell = new PdfPCell(new Phrase(text,font));
+		   cell.setBorder(0);
+		   return cell;
+	}
+	
+	public static PdfPCell getCell(String text, Font font, boolean addurl) {
+		   Chunk url = new Chunk(text);
+		   url.setAnchor(text);
+		   PdfPCell cell = new PdfPCell(new Phrase(url));
 		   cell.setBorder(0);
 		   return cell;
 	}
