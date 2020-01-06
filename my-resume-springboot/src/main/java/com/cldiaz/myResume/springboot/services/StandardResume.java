@@ -28,7 +28,6 @@ import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
-import com.itextpdf.text.pdf.PdfPCellEvent;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfTemplate;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -41,6 +40,8 @@ public class StandardResume implements PdfResumeGenerator {
 	private final static Font Title_Header = new Font(Font.FontFamily.TIMES_ROMAN, 20, Font.ITALIC);
 	private final static Font Ref = new Font(Font.FontFamily.TIMES_ROMAN, 16, Font.ITALIC);
 	private final static Font Normal_Italic = new Font(Font.FontFamily.TIMES_ROMAN, 11, Font.ITALIC);
+	private final static Font url = new Font(Font.FontFamily.TIMES_ROMAN, 11, Font.ITALIC | Font.UNDERLINE);
+	private final static Font urlList = new Font(Font.FontFamily.TIMES_ROMAN, 11, Font.BOLDITALIC | Font.UNDERLINE);
 	
 	public StandardResume() {}
 	
@@ -107,7 +108,7 @@ public class StandardResume implements PdfResumeGenerator {
 		PdfPCell postal = new PdfPCell(getCell(basicInfo.getPostalcode(), Normal_Font));
 		PdfPCell phone = new PdfPCell(getCell(basicInfo.getPhone(), Normal_Font));
 		PdfPCell email = new PdfPCell(getCell(basicInfo.getEmail(), Normal_Font));
-		PdfPCell git_url = new PdfPCell(getCell(basicInfo.getGitUrl(), Normal_Font));
+		PdfPCell git_url = new PdfPCell(getCell(basicInfo.getGitUrl(), url, true));
 
 		rightHeader.addCell(city);
 		rightHeader.addCell(postal);
@@ -209,17 +210,22 @@ public class StandardResume implements PdfResumeGenerator {
 			   eduSet.addCell(detailCell);
 			   
 			   if(!(temp.getCourses() == null)) {
-				   System.out.println("adding course");
-				   ArrayList<String> courseList = new ArrayList<String>();
+				   //System.out.println("adding course");
+				   ArrayList<Phrase> courseList = new ArrayList<Phrase>();
 				   
 				   for(Course classtext: temp.getCourses().getCourse()) {
-					   String courseDesc;
-					   courseDesc = classtext.getName() + "- " + classtext.getDescription() + " - " + classtext.getDuration();
-					   System.out.println(courseDesc);
+					   Phrase courseDesc = new Phrase();
+					   Chunk urlText = new Chunk(classtext.getName(), urlList);
+					   urlText.setAnchor(classtext.getUrl());
+					   courseDesc.add(urlText);
+					   courseDesc.add(new Chunk("- " + classtext.getDescription() + " - " + classtext.getDuration(), Normal_Font));
+					   
+					   //courseDesc = classtext.getName() + "- " + classtext.getDescription() + " - " + classtext.getDuration();
+					   //System.out.println(courseDesc);
 					   courseList.add(courseDesc);
 				   }
 				   
-				   createList(eduSet, courseList, " Courses ", false);
+				   createList(eduSet, courseList, " Courses ", false, true);
 			   }
 		}
 		
@@ -240,7 +246,7 @@ public class StandardResume implements PdfResumeGenerator {
 	}
 	
 	public static PdfPCell getCell(String text, Font font, boolean addurl) {
-		   Chunk url = new Chunk(text);
+		   Chunk url = new Chunk(text, font);
 		   url.setAnchor(text);
 		   PdfPCell cell = new PdfPCell(new Phrase(url));
 		   cell.setBorder(0);
@@ -317,7 +323,7 @@ public class StandardResume implements PdfResumeGenerator {
 		   
 		   return newCell;
 	   }
-	   
+	
 	public static void createList(PdfPTable table, ArrayList<String> text, String Header, boolean addBlankLine) {
 		   
 		   //Font font = new Font(FontFamily.HELVETICA, 12);
@@ -350,6 +356,54 @@ public class StandardResume implements PdfResumeGenerator {
 		   
 		   for(String temp: text) {
 			   list.add(new ListItem(13,temp,Normal_Font));
+		   }
+		   
+		   listPhrase.add(list);
+		   PdfPCell listCell = new PdfPCell();
+		   listCell.setBorder(0);
+		   listCell.addElement(listPhrase);
+		   table.addCell(listCell);
+		   
+		   if(addBlankLine	) {
+			   table.addCell(blank);
+			   table.addCell(blank);
+			   table.addCell(blank);
+			   table.addCell(blank);
+		   }
+	}
+	
+	public static void createList(PdfPTable table, ArrayList<Phrase> phrase, String Header,boolean addBlankLine, boolean addUrl) {
+		   
+		   //Font font = new Font(FontFamily.HELVETICA, 12);
+		   PdfPCell blank = new PdfPCell();
+		   Phrase listPhrase = new Phrase();
+		   listPhrase.setFont(Normal_Font);
+		   blank.setBorder(0);
+		   blank.setFixedHeight(10f);
+		   
+		   table.addCell(blank);
+		   
+		   List headerList = new List();
+		   Phrase ph = new Phrase();
+		   headerList.setListSymbol("\u2022");
+		   headerList.add(new ListItem(15,Header, Normal_Font));
+		   ph.add(headerList);
+		   
+		   
+		   PdfPCell listHeader = new PdfPCell();
+		   listHeader.setBorder(0);
+		   listHeader.addElement(ph);
+		  
+		   table.addCell(listHeader);
+		   
+		   table.addCell(blank);
+		   
+		   List list = new List();
+		   list.setListSymbol("- ");
+		   list.setIndentationLeft(25);
+		   
+		   for(Phrase temp: phrase) {
+			   list.add(new ListItem(temp));
 		   }
 		   
 		   listPhrase.add(list);
