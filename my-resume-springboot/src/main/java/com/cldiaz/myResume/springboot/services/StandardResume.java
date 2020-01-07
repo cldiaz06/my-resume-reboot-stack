@@ -12,6 +12,7 @@ import com.cldiaz.myResume.springboot.interfaces.PdfResumeGenerator;
 import com.cldiaz.myResume.springboot.model.education.Course;
 import com.cldiaz.myResume.springboot.model.education.Education;
 import com.cldiaz.myResume.springboot.model.experience.Experience;
+import com.cldiaz.myResume.springboot.model.experience.ProjDetail;
 import com.cldiaz.myResume.springboot.model.skill.Skills;
 import com.cldiaz.myResume.springboot.models.BasicInfo;
 import com.cldiaz.myResume.springboot.models.Resume;
@@ -165,12 +166,45 @@ public class StandardResume implements PdfResumeGenerator {
 			   experienceSet.addCell(skillDetail);
 			   
 			   ArrayList<String> gen = temp.getGenDutyDetails();
-			   ArrayList<String> pro = temp.getProjDetails();
+			   //ArrayList<String> pro = temp.getProjDetails();
 			   ArrayList<String> app = temp.getAppSupDetails();
 			   
-			   createList(experienceSet, gen, " General Duties", false);
-			   createList(experienceSet, pro, " Projects", false);
-			   createList(experienceSet, app, " App. Support:", true);
+			   if(gen.size() > 0) {
+				   createList(experienceSet, gen, " General Duties", false);
+			   }
+			   //createList(experienceSet, pro, " Projects", false);  
+			   if(!(temp.getProjDetails() == null)) {
+				   ArrayList<Phrase> projList = new ArrayList<>();
+				   ArrayList<String> projText = new ArrayList<>();
+				   
+				   for(ProjDetail detail: temp.getProjDetails().getProjDetail()) {
+					   if(detail.getUrl() == null) {
+						   String projDetailText = new String();
+						   projDetailText = detail.getName() + " -" + detail.getDescription() + " -" + detail.getDuration();
+						   projText.add(projDetailText);
+					   } else {  
+						   Phrase project = new Phrase();
+						   project.add(getUrl(detail.getName(), detail.getUrl(), urlList));
+						   project.add(new Chunk (" -" + detail.getDescription() + " -" + detail.getDuration(),Normal_Font));
+						   projList.add(project);
+					   }
+				   }
+				   
+				   if(projList.size() > 0) {
+					   createList(experienceSet, projList, " Projects ", true, true);
+					   projList.clear();
+				   }
+				   
+				   if(projText.size() > 0) {
+					   createList(experienceSet, projText, " Projects", false); 
+					   projText.clear();
+				   }
+				   
+			   }
+			   
+			   if(app.size() > 0) {
+				   createList(experienceSet, app, " App. Support:", true);
+			   }
 
 		}
 		
@@ -179,7 +213,6 @@ public class StandardResume implements PdfResumeGenerator {
 
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public void addEducation(Document document, ArrayList<Education> education) throws DocumentException {
 		addEmptyLine(document, 5);
@@ -243,6 +276,12 @@ public class StandardResume implements PdfResumeGenerator {
 		   PdfPCell cell = new PdfPCell(new Phrase(text,font));
 		   cell.setBorder(0);
 		   return cell;
+	}
+	
+	public static Chunk getUrl(String text, String urlText, Font font) {
+		Chunk url = new Chunk(text, font);
+		url.setAnchor(urlText);
+		return url;
 	}
 	
 	public static PdfPCell getCell(String text, Font font, boolean addurl) {

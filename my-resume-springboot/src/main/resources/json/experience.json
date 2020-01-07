@@ -1,5 +1,68 @@
 [		 
 	{
+        "startDate":"2017",
+        "endDate":"Current",
+        "title":"Full Stack Engineer",
+        "city": " Oak Park",
+        "company": " Self-Training",
+        "state": " IL",
+        "summary":" Personal projects for learning, and improving development skills.",
+        "projDetails":{"projDetail":[
+								 	 {
+								   		"name":"My Resume MVC",
+								   		"url":"<gitlab_url>",
+		                           		"description":"Inital web-MVC based website",
+								   		"duration":"8 months",
+		                           		"tech":["Json", "Xml","Java 8", "Spring MVC", "BootStrap", "Git","Maven"]
+			  					 	},
+			  					 	{
+								   		"name":"Mean Post it app",
+								   		"url":"<gitlab_url>",
+		                           		"description":"Posting App, intro project to MEAN stack",
+								   		"duration":"6 months",
+		                           		"tech":["JavaScript", "MongoDB", "ExpressJS", "Angular", "NodeJs","Git", "Material UI","NPM", "RestAPI"]
+			  					 	},
+			  					 	{
+								   		"name":"Hamburger Builder",
+								   		"url":"<gitlab_url>",
+		                           		"description":"Order Entry burger app, intro project to React",
+								   		"duration":"4 months",
+		                           		"tech":["JavaScript", "ReactJs", "Google Firebase", "Git","NPM", "Yarn"]
+			  					 	},
+			  					 	{
+								   		"name":"Affirm reminder",
+								   		"url":"<gitlab_url>",
+		                           		"description":"Backend web app to posts affirmation to calendar as an event",
+								   		"duration":"2 months",
+		                           		"tech":["Json", "Java 8", "Spring Boot", "Gradle", "Git", "RestAPI", "Heroku"]
+			  					 	},
+			  					 	{
+								   		"name":"Currency conversion",
+								   		"url":"<gitlab_url>",
+		                           		"description":"converts dollars to Euro, intro to Spring cloud Microservices",
+								   		"duration":"3 months",
+		                           		"tech":["Java 8", "Spring Boot", "Spring Cloud","Eureka naming", "Zipkin Dist. Tracing", "Zuul Api Gateway", "RabbitMQ"]
+			  					 	},	
+			  					 	{
+								   		"name":"Proj Management Tool",
+								   		"url":"<gitlab_url>",
+		                           		"description":"Full stack tool to manage Kanban projects",
+								   		"duration":"on-going",
+		                           		"tech":["Json", "Java 8", "Spring Boot", "Maven", "Git", "RestAPI", "ReactJS", "Redux", "Yarn", "Heroku", "H2"]
+			  					 	},
+			  						{
+								   		"name":"My Resume Full Stack",
+								   		"url":"<gitlab_url>",
+		                           		"description":"My Resume web app with newer front end ",
+								   		"duration":"on-going",
+		                           		"tech":["Json", "Java 8", "Spring Boot", "Maven", "Git", "RestAPI", "ReactJS", "Redux", "Yarn", "Heroku", "Bootstrap"]
+			  					 	}
+                      			  ]
+                      },
+        "appSupDetails":[],
+        "genDutyDetails":["Continuously improving upon and add new skills in regards to Software Development."]
+    },		  
+	{
 	    "startDate":"2013",
 	    "endDate":"Current",
 	    "title":"Software Engineer",
@@ -7,13 +70,37 @@
 	    "company":"Cintas Uniform Corp",
 	    "state": "IL",
 	    "summary":"Direct Sale and Rent Business goods such as Uniforms & floor mats",
-        "projDetails":["Delphi switch to XE5/FireDac - dur:4 months",
-        	           "Hybris (Java/Spring Mvc v4.0) Ecommerce go Live - dur: 1 yr, 2 months", 
-        	           "Migrate Customers to Hybris - ongoing",
-        	           "Order Issue Rpt w/ release funct. - 2 months",
-        	           "Add new fields to Hybris reporting, which required .net, sql, and java changes - 2 months",
-        	           "Added custom controls to Hybris, with required .net, sql, & delphi changes - 1 month"
-        	          ],
+        "projDetails":{"projDetail":[
+								 	 {
+								   		"name":" Delphi Upgrade to XE5",
+		                           		"description":"Move app from Delphi 08 to XE5 with updated code base.",
+								   		"duration":"4 months",
+								   		"achievement":"Extended EOL support, and reduce cost with using newer native databse objects.",
+		                           		"tech":["Delphi", "SQL"]
+			  					 	},
+			  					 	 {
+								   		"name":" Hybris Ecommerce Go-live",
+		                           		"description":"Update legacy systems to integrate with Hybris Ecommerce platform.",
+								   		"duration":"1 yr 4 mm",
+								   		"achievement":"Move business ahead of schedule in overall migration from legacy to SAP.",
+		                           		"tech":["Delphi", "SQL", "C#", "Asp.net 4.0", "asp"]
+			  					 	},
+			  					 	 {
+								   		"name":" Migrate from legacy to Hybris",
+		                           		"description":"Implement necessary changes to allow business to move customers into Hybris",
+								   		"duration":"On-going",
+								   		"achievement":"Currently, only 10% of customers order within Legacy system.",
+		                           		"tech":["Delphi", "SQL", "C#", "Asp.net 4.0", "asp", "Java 7", "Spring MVC", "Git"]
+			  					 	},
+			  					 	 {
+								   		"name":" Internal Web-based tools and reports",
+		                           		"description":"Build new reporting, and mass maint. tools to allow business scale and plan without delay on IT",
+								   		"duration":"On-going",
+								   		"achievement":"Reduced data clean tasks on I.T from 12 hours a week to 1.",
+		                           		"tech":["SQL", "C#", "Asp.net 4.0", "Asp", "Java 7", "Spring MVC", "Git"]
+			  					 	}
+			  					   ]
+			  			},
         "appSupDetails":["Triage reported issues to determine root cause",
         				  "If issue requires data change, aquire approval to make corrections on database.",
         				  "If root issue requires code change, request is submitted to business and scheduled.",
@@ -30,23 +117,5 @@
         				  "Work with senior engineer to ensure deployment folder is prepared, with includes backing up changes.",
         				  "If necessary, develop, test and run SQL scripts for various tasks that business cannot complete."
         				 ]
-    },{
-        "startDate":"2017",
-        "endDate":"Current",
-        "title":"Full Stack Engineer",
-        "city": " Oak Park",
-        "company": " Self-Training",
-        "state": " IL",
-        "summary":" Personal projects for learning, and improving development skills.",
-        "projDetails":[" myResumeRest - Spring MVC and Boot application with PDF Generator - dur: 2 months",
-                       " web-stock-quote - Spring Webflux demo - dur: 1 month", 
-                       " MeanStack_intro - MEAN stack posting app - dur: 4 months",
-                       " ResumeGenerator - Java 8 based app as part of myResumeRest project - dur: 4 months",
-                       " Hamburger_builder_app - React based app -  dur: Current" 
-                      ],
-        "appSupDetails":["myResumeRest - next step is add security and support  for the Rest fuctionality.",
-                        "As well, as add myResumeRest to either Docker/Kubernete container, and host in cloud"
-                        ],
-        "genDutyDetails":["Continuously improving upon and add new skills in regards to Software Development."]
-    }		  
+    }
 ]

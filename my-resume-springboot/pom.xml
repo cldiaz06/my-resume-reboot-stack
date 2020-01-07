@@ -83,6 +83,10 @@
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-xml</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-start-thymeleaf</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>

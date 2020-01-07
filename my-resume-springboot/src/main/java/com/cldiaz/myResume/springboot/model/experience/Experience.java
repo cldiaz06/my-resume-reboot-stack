@@ -23,8 +23,9 @@ public class Experience {
 	private String state;
 	private String summary;
 
-	private ArrayList<String> projDetails;
-	//private ArrayList<ProjectDetails> projDetails;
+	//private ArrayList<String> projDetails;
+	
+	private ProjDetails projDetails;
 	private ArrayList<String> appSupDetails;
 	private ArrayList<String> genDutyDetails;
 //	

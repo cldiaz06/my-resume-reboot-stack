@@ -22,6 +22,7 @@ import com.cldiaz.myResume.springboot.interfaces.GetResume;
 import com.cldiaz.myResume.springboot.interfaces.PdfResumeGenerator;
 import com.cldiaz.myResume.springboot.interfaces.SendEmailService;
 import com.cldiaz.myResume.springboot.model.education.Education;
+import com.cldiaz.myResume.springboot.model.experience.Experience;
 import com.cldiaz.myResume.springboot.models.BasicInfo;
 import com.cldiaz.myResume.springboot.models.Email;
 import com.cldiaz.myResume.springboot.models.Resume;
@@ -77,6 +78,11 @@ public class ResumeRestController {
 	@GetMapping(value="/edu")
 	public ArrayList<Education> getEdu() {
 		return res.getEducation();
+	}
+	
+	@GetMapping(value="/exp")
+	public ArrayList<Experience> getExp() {
+		return res.getExperience();
 	}
 	
 	@CrossOrigin(origins="http://localhost:3000")
