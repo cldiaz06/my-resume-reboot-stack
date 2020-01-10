@@ -4,15 +4,21 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.mail.MessagingException;
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,12 +26,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cldiaz.myResume.springboot.config.ConfigProperties;
 import com.cldiaz.myResume.springboot.interfaces.GetResume;
 import com.cldiaz.myResume.springboot.interfaces.PdfResumeGenerator;
-import com.cldiaz.myResume.springboot.interfaces.SendEmailService;
 import com.cldiaz.myResume.springboot.model.education.Education;
 import com.cldiaz.myResume.springboot.model.experience.Experience;
 import com.cldiaz.myResume.springboot.models.BasicInfo;
 import com.cldiaz.myResume.springboot.models.Email;
 import com.cldiaz.myResume.springboot.models.Resume;
+import com.cldiaz.myResume.springboot.services.EmailNotifiyService;
 import com.itextpdf.text.DocumentException;
 
 @RestController
@@ -34,12 +40,14 @@ public class ResumeRestController {
 
 	private GetResume getResume;
 	private Resume res;
-
-	private SendEmailService sendEmailService;
+;
 	private PdfResumeGenerator pdfResumeGenerator;
 
 	@Autowired
 	private ConfigProperties config;
+	
+	@Autowired
+	private EmailNotifiyService emailService;
 	
 	@Autowired
 	public void setGetResume(ApplicationContext context) {
@@ -58,12 +66,6 @@ public class ResumeRestController {
 			pdfResumeGenerator = (PdfResumeGenerator) context.getBean("standard");
 		}
 	}
-	
-	@Autowired
-	public void setEmailService(ApplicationContext context) {
-		sendEmailService = (SendEmailService) context.getBean("prod");
-	}
-	
 	
 	@ModelAttribute("resume")
 	public void setResume(Resume res) {
@@ -109,9 +111,13 @@ public class ResumeRestController {
 
 	}
 	
-	@GetMapping("/sendEmail")
-	public ResponseEntity<Email> sendEmail(@RequestBody Email email){
-		return ResponseEntity.ok().body(email);
+	@PostMapping("/sendEmail")
+	public ResponseEntity<?> sendEmail (@Valid @RequestBody Email mail, Errors errors) throws MessagingException, IOException {
+		if(errors.hasErrors()) {
+			return new ResponseEntity<>(errors.getAllErrors(), HttpStatus.BAD_REQUEST);
+		}
+		
+		return emailService.sendMail(mail);
 	}
 	
 	
