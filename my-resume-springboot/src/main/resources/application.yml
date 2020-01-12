@@ -1,0 +1,23 @@
+server:
+  port: 8081
+spring:
+  mail:
+    host: smtp.gmail.com
+    password: 'Alph@2020'
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          connectiontimeout: 10000
+          ssl:
+            trust: smtp.gmail.com
+          starttls:
+            enable: true
+            required: true
+          timeout: 5000
+          writetimeout: 5000
+    protocol: smtp
+    username: 'cldiaz1066.springresume@gmail.com'
+  thymeleaf:
+    cache: false
