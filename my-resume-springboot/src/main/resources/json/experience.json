@@ -10,7 +10,7 @@
         "projDetails":{"projDetail":[
 								 	 {
 								   		"name":"My Resume MVC",
-								   		"url":"<gitlab_url>",
+								   		"url":"https://gitlab.com/cldiaz06/myResumeRest",
 		                           		"description":"Inital web-MVC based website",
 								   		"duration":"8 months",
 		                           		"tech":["Json", "Xml","Java 8", "Spring MVC", "BootStrap", "Git","Maven"]
@@ -24,36 +24,36 @@
 			  					 	},
 			  					 	{
 								   		"name":"Hamburger Builder",
-								   		"url":"<gitlab_url>",
+								   		"url":"https://gitlab.com/cldiaz06/hamerburger-builder-app",
 		                           		"description":"Order Entry burger app, intro project to React",
 								   		"duration":"4 months",
 		                           		"tech":["JavaScript", "ReactJs", "Google Firebase", "Git","NPM", "Yarn"]
 			  					 	},
 			  					 	{
 								   		"name":"Affirm reminder",
-								   		"url":"<gitlab_url>",
+								   		"url":"https://gitlab.com/cldiaz06/affirmRest",
 		                           		"description":"Backend web app to posts affirmation to calendar as an event",
 								   		"duration":"2 months",
 		                           		"tech":["Json", "Java 8", "Spring Boot", "Gradle", "Git", "RestAPI", "Heroku"]
 			  					 	},
 			  					 	{
 								   		"name":"Currency conversion",
-								   		"url":"<gitlab_url>",
+								   		"url":"https://gitlab.com/cldiaz06/spring_microservices",
 		                           		"description":"converts dollars to Euro, intro to Spring cloud Microservices",
 								   		"duration":"3 months",
 		                           		"tech":["Java 8", "Spring Boot", "Spring Cloud","Eureka naming", "Zipkin Dist. Tracing", "Zuul Api Gateway", "RabbitMQ"]
 			  					 	},	
 			  					 	{
 								   		"name":"Proj Management Tool",
-								   		"url":"<gitlab_url>",
-		                           		"description":"Full stack tool to manage Kanban projects",
+								   		"url":"https://gitlab.com/cldiaz06/project-mange-full-stack-spring-react",
+		                           		"description":"Full stack tool to manage Kanban projects with spring boot + react",
 								   		"duration":"on-going",
 		                           		"tech":["Json", "Java 8", "Spring Boot", "Maven", "Git", "RestAPI", "ReactJS", "Redux", "Yarn", "Heroku", "H2"]
 			  					 	},
 			  						{
 								   		"name":"My Resume Full Stack",
-								   		"url":"<gitlab_url>",
-		                           		"description":"My Resume web app with newer front end ",
+								   		"url":"https://gitlab.com/cldiaz06/my-resume-reboot-stack",
+		                           		"description":"My Resume web app using spring boot + react stack",
 								   		"duration":"on-going",
 		                           		"tech":["Json", "Java 8", "Spring Boot", "Maven", "Git", "RestAPI", "ReactJS", "Redux", "Yarn", "Heroku", "Bootstrap"]
 			  					 	}

@@ -18,11 +18,11 @@
 			"endDate" : "current",
 			"schoolName" : "Udemy",
 			"location" : "Online",
-			"achievement" : "Projects completed",
+			"achievement" : "Projects completed and loaded to git repository",
 			"courses":{"course":[
 								 {
 								  "name":"Java Programming Masterclass by Tim Buchalka",
-								  "url":"https://www.udemy.com/course/java-the-complete-java-developer-course/l",
+								  "url":"https://www.udemy.com/course/java-the-complete-java-developer-course/",
 								  "duration":"8 months",
 								  "description":"Refresh existing Java skills, along with new skills with Java 8",
 								  "completed":false			
