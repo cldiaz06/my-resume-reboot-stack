@@ -40,20 +40,27 @@
 								  "duration":"4 months",
 								  "description":"Intro MEAN stack & Angular JS.",
 								  "completed":false		
-			                     },
-			                     {
-								  "name":"React- Complete Guide by Max Schwarzmuller",
-								  "url":"https://www.udemy.com/course/react-the-complete-guide-incl-redux/",
-								  "duration":"4 months",
-								  "description":"Build App using React with Firebase backend",
-								  "completed":false		
-			                     },
+			                     },			      
 			                     {
 								  "name":"Udemy: Microservice w/ Spring Boot & Spring Cloud",
 								  "url":"https://www.udemy.com/course/microservices-with-spring-boot-and-spring-cloud/",
 								  "duration":"4 months",
 								  "description":"Intro microservices using Spring Framework",
 								  "completed":true		
+			                     },
+			                     {
+								  "name":"Full Stack Proj. Spring Boot, ReactJs, Redux",
+								  "url":"https://www.udemy.com/course/full-stack-project-spring-boot-20-react-redux/",
+								  "duration":"5 months",
+								  "description":"Capstone project with Spring Boot Bk, React+Redux frt, & hosted in Heroku",
+								  "completed":true		
+			                     },
+			                     {
+								  "name":"Python for Data Science & Machine Learning",
+								  "url":"https://www.udemy.com/course/python-for-data-science-and-manchine-learning-bootcamp/",
+								  "duration":" 1/2 month",
+								  "description":"Intro python libraries & machine learning",
+								  "completed":false		
 			                     }
 								]
 					  }

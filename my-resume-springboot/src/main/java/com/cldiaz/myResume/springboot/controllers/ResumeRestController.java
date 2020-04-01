@@ -40,7 +40,7 @@ public class ResumeRestController {
 
 	private GetResume getResume;
 	private Resume res;
-;
+
 	private PdfResumeGenerator pdfResumeGenerator;
 
 	@Autowired

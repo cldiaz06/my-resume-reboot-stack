@@ -47,8 +47,8 @@
 								   		"name":"Proj Management Tool",
 								   		"url":"https://gitlab.com/cldiaz06/project-mange-full-stack-spring-react",
 		                           		"description":"Full stack tool to manage Kanban projects with spring boot + react",
-								   		"duration":"on-going",
-		                           		"tech":["Json", "Java 8", "Spring Boot", "Maven", "Git", "RestAPI", "ReactJS", "Redux", "Yarn", "Heroku", "H2"]
+								   		"duration":"5 months",
+		                           		"tech":["Json", "Java 8", "Spring Boot", "Maven", "Git", "RestAPI", "ReactJS", "Redux", "Yarn", "Heroku", "H2", "MySQL"]
 			  					 	},
 			  						{
 								   		"name":"My Resume Full Stack",
