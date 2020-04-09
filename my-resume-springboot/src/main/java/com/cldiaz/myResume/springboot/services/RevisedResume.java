@@ -53,8 +53,8 @@ public class RevisedResume implements PdfResumeGenerator {
 	};
 	
 	public ByteArrayInputStream buildResumePdfRest(Resume resume) throws DocumentException{
-		Document doc = new Document(PageSize.A4);
-		doc.setMargins(30,5,30,50);
+		Document doc = new Document(PageSize.LETTER);
+		doc.setMargins(30,30,30,50);
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 		PdfWriter writer = PdfWriter.getInstance(doc, out);
 		doc.open();
@@ -156,7 +156,7 @@ public class RevisedResume implements PdfResumeGenerator {
 			   skillSet.addCell(skillDetail);
 			   
 		   }
-		   skillSet.setSpacingAfter(30f);
+		   skillSet.setSpacingAfter(20f);
 		   document.add(skillSet);
 
 	}
@@ -180,7 +180,7 @@ public class RevisedResume implements PdfResumeGenerator {
 			   exPhrase.setFont(Normal_Font);
 		
 			   exPhrase.add(expDes);
-			   exPhrase.add("                         ");
+			   exPhrase.add("                                                      ");
 			   exPhrase.add(expDate);
 			   
 			   PdfPCell expCell = new PdfPCell(exPhrase);
@@ -195,7 +195,7 @@ public class RevisedResume implements PdfResumeGenerator {
 	
 		}
 		
-		experienceSet.setSpacingAfter(30f);
+		experienceSet.setSpacingAfter(15f);
 		document.add(experienceSet); 
 	}
 
@@ -266,22 +266,10 @@ public class RevisedResume implements PdfResumeGenerator {
 		   return cell;
 	}
 	
-	private static Chunk getUrl(String text, String urlText, Font font) {
-		Chunk url = new Chunk(text, font);
-		url.setAnchor(urlText);
-		return url;
-	}
-	
 	private static PdfPCell getCell(String text, Font font, boolean addurl) {
 		   Chunk url = new Chunk(text, font);
 		   url.setAnchor(text);
 		   PdfPCell cell = new PdfPCell(new Phrase(url));
-		   cell.setBorder(0);
-		   return cell;
-	}
-	
-	private static PdfPCell getCell(Phrase phrase) {
-		   PdfPCell cell = new PdfPCell(phrase);
 		   cell.setBorder(0);
 		   return cell;
 	}
@@ -340,23 +328,6 @@ public class RevisedResume implements PdfResumeGenerator {
 		   cell.setIndent(15);
 		   return cell;
 	}
-	
-	private static PdfPCell getHeader(Phrase phrase) {
-		   PdfPCell cell = getCell(phrase);
-		   cell.setHorizontalAlignment(Element.ALIGN_LEFT);
-		   cell.setIndent(15);
-		   return cell;
-	}
-	
-	private static PdfPCell getList(String Header, ArrayList<String> details) {
-		   PdfPCell newCell = new PdfPCell();
-		   
-		   newCell.setHorizontalAlignment(Element.ALIGN_MIDDLE);
-		   newCell.setIndent(0);
-		   newCell.disableBorderSide(Rectangle.NO_BORDER);
-		   
-		   return newCell;
-	   }
 	
 	private static void createList(PdfPTable table, ArrayList<String> text, String Header, boolean addBlankLine) {
 		   
@@ -492,7 +463,7 @@ public class RevisedResume implements PdfResumeGenerator {
 		PdfPTable sumTable = new PdfPTable(1);
 		sumTable.setWidthPercentage(100f);
 		createList(sumTable, summary, "", false);
-		sumTable.setSpacingAfter(10f);
+		sumTable.setSpacingAfter(20f);
 		
 		document.add(sumTable);
 	} 

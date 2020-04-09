@@ -1,31 +1,31 @@
 
 	[		 
 		 	  {
-				"header" : "Languages",
-				"detail": "SQL, Java, Pascal ,C#, Python, Html, CSS,Javascript, XML, JSON, Yaml"
+				"header" : "Languages:",
+				"detail": "SQL, Java, C#, Javascript, Pascal, Python, Html, CSS, XML, JSON, Yaml"
 			  },
 			  {
-			  	"header":"Database",
+			  	"header":"Databases:",
 			  	"detail":"Microsoft SQL, Oracle SQL, MySQL, MongoDB"
 			  },
 			  {
-				 "header" : "Server Fwk:",
-				 "detail" : "ASP.net: MVC, Web Forms & Entity, Spring: MVC & Boot"
+				"header" : "Server Fwk:",
+				"detail" : "Asp.Net: Webforms, MVC, & Entity, Spring: MVC & Boot, NodeJs, ExpressJs"
 			  },
 			  {
-				  "header" : "Client Fwk:",
-				  "detail" : "ReactJs, Redux, Graphql, VueJs, AngularJs, jQuery, Asp, Jsp, Bootstrap, Bulma"
+				"header" : "Client Fwk:",
+				"detail" : "ReactJs, Redux, VueJs, AngularJs, jQuery, Asp, Jsp, Bootstrap, Bulma"
 			  },
 			  {
-				  "header" : "CI/CD",
-				  "detail" : "Git, Jenkins,  Maven, Ant, Gradle, Docker, Npm, Yarn, pip, conda "
+				"header" : "CI/CD:",
+				"detail" : "Git, Jenkins, Maven, Ant, Gradle, Docker, NPM, Yarn, Pip"
 			  },
 			  {
-				  "header" : "Workstation",
-				  "detail" : "Visual Studio, Eclipse, Visual Studio Code, Notepad++, Delphi, Atom,Intellij IDEA,VirtualBox, Postman, SoapUI"
+				"header" : "Workstation:",
+				"detail" : "Visual Studio, Eclipse, Visual Studio Code, Delphi, Intellij IDEA, Postman"
 			  },
 			  {
-				  "header" : "Apps/Services",
-				  "detail" : "Hybris Ecommerce, REST, SOAP, Heroku, Tomcat"
+				  "header" : "Apps/Services:",
+				  "detail" : "Hybris Ecommerce, API, REST, SOAP, Graphql, Heroku, Syntax/FIT cloud, Microservices."
 			  }
 	]

@@ -9,13 +9,15 @@
 	    "summary":"Direct Sale and Rent Business goods such as Uniforms & floor mats",
         "projDetails":{"projDetail":[]},
         "appSupDetails":[],
-        "genDutyDetails":["Triage reported issues to determine root cause.",
-        				  "Based on those findings, plan out various solutions and report them to business.",
-        				  "Leading to deployment, work with change management on working thru process for deployment signoff.",
-        				  "Coordinate with other system engineers to build and implement solution.",
-        				  "Work with business partners to develop and automate processes to meet requirements.",
-        				  "Work with senior engineer to ensure deployment folder is prepared, with includes backing up changes.",
-        				  "If necessary, develop, test and run SQL scripts for various tasks that business cannot complete."
+        "genDutyDetails":["Extended end-of-life support, & saved $300 a year licensing, by upgrading Delphi application code base as the Principal Engineer.",
+        				  "Reduced IT investigate tickets, & delay in order processing due to error, by both implementing process to identify, provide means to fix errored orders, & implementing bug fixes.",
+        				  "Implemented code changes on Microsoft based system to integrate into SAP Hybris Ecommerce Platform Go-Live Project, which included SQL database, Asp.net based API, and Delphi based application.",
+        				  "Upon Hybris Ecommerce Go-live, provided support for new functionality on the platform with little to no documenation provided, while under high stressful environment.",
+        				  "Expediated order processing, & customer ordering go live by running SQL scripts such mass updating customer accts, orders, & product pricing.",
+        				  "Reduced amount of meeting times with client, by being able to communicate and understand what the targeted outcome should be. ",
+        				  "Simplfied order maintenance, & implemented necessary reporting, by building & implementing .Net based web page tools.",
+        				  "Reduced development time by 1 hour a workday, by proving ROI & implementing jRebel into Eclipse IDE. Before, if we investigated and needed test a code fix, it would take over an hour in stop/starting local server.",
+        				  "Saved time, and reducing number of engineers needed, by being able to build both the integration, & funcationality into Hybris. Often, these tasks require changes on SQL database, .Net, Delphi based App, Java/Spring, & Jsp."
         				 ]
     }
 ]
