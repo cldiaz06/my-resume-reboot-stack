@@ -1,5 +1,7 @@
 package com.cldiaz.myResume.springboot.models;
 
+import java.util.ArrayList;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,7 +25,8 @@ public class BasicInfo {
 	private String phone;
 	private String email;
 	private String gitUrl;
-	private String summary;
+	//private String summary;
+	private ArrayList<String> summary;
 	private String linkedin;
 //	
 //	public BasicInfo() {}

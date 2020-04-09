@@ -26,14 +26,16 @@ import com.itextpdf.text.Image;
 import com.itextpdf.text.List;
 import com.itextpdf.text.ListItem;
 import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.PRAcroForm;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfTemplate;
 import com.itextpdf.text.pdf.PdfWriter;
 
-@Service("revision")
+@Service("revised")
 public class RevisedResume implements PdfResumeGenerator {
 	
 	private final static Font Normal_Font = new Font(Font.FontFamily.TIMES_ROMAN,11, Font.NORMAL);
@@ -101,9 +103,12 @@ public class RevisedResume implements PdfResumeGenerator {
 		leftHeader.setHorizontalAlignment(Element.ALIGN_LEFT);
 		PdfPCell name = new PdfPCell(getCell(basicInfo.getFirstName() + " " + basicInfo.getLastName(), Name_Header));
 		PdfPCell title1 = new PdfPCell(getCell(basicInfo.getTitle(), Title_Header));
+		PdfPCell gitLabUrl = new PdfPCell(getCell(basicInfo.getGitUrl(),  url, true));
+		
 		
 		leftHeader.addCell(name);
 		leftHeader.addCell(title1);
+		//leftHeader.addCell(gitLabUrl);
 		
 		leftTable.addElement(leftHeader);
 		mainHeader.addCell(leftTable);
@@ -128,7 +133,7 @@ public class RevisedResume implements PdfResumeGenerator {
 		
 		rightTable.addElement(rightHeader);
 		mainHeader.addCell(rightTable);
-		mainHeader.setSpacingAfter(30f);
+		mainHeader.setSpacingAfter(10f);
 		
 		document.add(mainHeader);
 
@@ -139,8 +144,8 @@ public class RevisedResume implements PdfResumeGenerator {
 		   addEmptyLine(document, 5);
 		   
 		   PdfPTable skillSet = new PdfPTable(2);
-		   skillSet.setWidthPercentage(90f);
-		   skillSet.setWidths(new float[] {33f,150f});
+		   skillSet.setWidthPercentage(95f);
+		   skillSet.setWidths(new float[] {30f,150f});
 		   skillSet.setHorizontalAlignment(Element.ALIGN_LEFT);
 		   
 		   for(Skills temp: skills) {
@@ -160,67 +165,38 @@ public class RevisedResume implements PdfResumeGenerator {
 	public void addExperience(Document document, ArrayList<Experience> experience) throws DocumentException {
 		addEmptyLine(document, 5);
 		   
-		PdfPTable experienceSet = new PdfPTable(2);
-		experienceSet.setTotalWidth(new float[] {33,100});
+		//PdfPTable experienceSet = new PdfPTable(2);
+		PdfPTable experienceSet = new PdfPTable(1);
+		experienceSet.setWidthPercentage(95f);
+		//experienceSet.setTotalWidth(new float[] {15,130});
 		experienceSet.setHorizontalAlignment(Element.ALIGN_LEFT);
 		
 		for(Experience temp: experience) {
-			   			
-			   PdfPCell skillHeader = getHeader(temp.getStartDate() + " - " + temp.getEndDate(),Normal_Font);
-			   String expHeader = new String();
-			   expHeader = temp.getTitle() + ',' + temp.getCompany() + "," + temp.getCity() + "," + temp.getState();
 			   
-			   PdfPCell skillDetail = getDetail(expHeader, Normal_Font);
-			   addEmptyLine(document,1);
-			   experienceSet.addCell(skillHeader);
-			   experienceSet.addCell(skillDetail);
-			   
-			   ArrayList<String> gen = temp.getGenDutyDetails();
-			   //ArrayList<String> pro = temp.getProjDetails();
-			   ArrayList<String> app = temp.getAppSupDetails();
-			   
-			   if(gen.size() > 0) {
-				   createList(experienceSet, gen, " General Duties", false);
-			   }
-			   //createList(experienceSet, pro, " Projects", false);  
-			   if(!(temp.getProjDetails() == null)) {
-				   ArrayList<Phrase> projList = new ArrayList<>();
-				   ArrayList<String> projText = new ArrayList<>();
-				   
-				   for(ProjDetail detail: temp.getProjDetails().getProjDetail()) {
-					   if(detail.getUrl() == null) {
-						   String projDetailText = new String();
-						   projDetailText = detail.getName() + " -" + detail.getDescription() + " -" + detail.getDuration();
-						   projText.add(projDetailText);
-					   } else {  
-						   Phrase project = new Phrase();
-						   project.add(getUrl(detail.getName(), detail.getUrl(), urlList));
-						   project.add(new Chunk (" -" + detail.getDescription() + " -" + detail.getDuration(),Normal_Font));
-						   projList.add(project);
-					   }
-				   }
-				   
-				   if(projList.size() > 0) {
-					   createList(experienceSet, projList, " Projects ", true, true);
-					   projList.clear();
-				   }
-				   
-				   if(projText.size() > 0) {
-					   createList(experienceSet, projText, " Projects", false); 
-					   projText.clear();
-				   }
-				   
-			   }
-			   
-			   if(app.size() > 0) {
-				   createList(experienceSet, app, " App. Support:", true);
-			   }
+			   Chunk expDate = new Chunk(temp.getStartDate() + " - " + temp.getEndDate());
+			   Chunk expDes = new Chunk(temp.getTitle() + ", " + temp.getCompany() + ", " + temp.getCity() + ", " + temp.getState());
 
+			   Phrase exPhrase = new Phrase();
+			   exPhrase.setFont(Normal_Font);
+		
+			   exPhrase.add(expDes);
+			   exPhrase.add("                         ");
+			   exPhrase.add(expDate);
+			   
+			   PdfPCell expCell = new PdfPCell(exPhrase);
+			   expCell.setBorder(0);
+			   expCell.setIndent(18f);
+			   experienceSet.addCell(expCell);
+			
+			   ArrayList<String> gen = temp.getGenDutyDetails();
+			   if(gen.size() > 0) {
+				   createList(experienceSet, gen, "", false);
+			   }
+	
 		}
 		
 		experienceSet.setSpacingAfter(30f);
 		document.add(experienceSet); 
-
 	}
 
 	@Override
@@ -228,7 +204,9 @@ public class RevisedResume implements PdfResumeGenerator {
 		addEmptyLine(document, 5);
 		   
 		PdfPTable eduSet = new PdfPTable(2);
-		eduSet.setTotalWidth(new float[] {33,100});
+		eduSet.setWidthPercentage(100f);
+		eduSet.setWidths(new float[] {20,100});
+		//eduSet.setTotalWidth(new float[] {33,100});
 		eduSet.setHorizontalAlignment(Element.ALIGN_LEFT);
 		   
 		for (Education temp: education) {
@@ -276,25 +254,25 @@ public class RevisedResume implements PdfResumeGenerator {
 		document.add(eduSet);
 	}
 	
-	public static void addEmptyLine(Document document, int number) throws DocumentException {
+	private static void addEmptyLine(Document document, int number) throws DocumentException {
 			for(int i=0; i < number;i++) {
 				document.add(Chunk.NEWLINE);
 			}
 	}
 	   
-	public static PdfPCell getCell(String text, Font font) {
+	private static PdfPCell getCell(String text, Font font) {
 		   PdfPCell cell = new PdfPCell(new Phrase(text,font));
 		   cell.setBorder(0);
 		   return cell;
 	}
 	
-	public static Chunk getUrl(String text, String urlText, Font font) {
+	private static Chunk getUrl(String text, String urlText, Font font) {
 		Chunk url = new Chunk(text, font);
 		url.setAnchor(urlText);
 		return url;
 	}
 	
-	public static PdfPCell getCell(String text, Font font, boolean addurl) {
+	private static PdfPCell getCell(String text, Font font, boolean addurl) {
 		   Chunk url = new Chunk(text, font);
 		   url.setAnchor(text);
 		   PdfPCell cell = new PdfPCell(new Phrase(url));
@@ -302,7 +280,7 @@ public class RevisedResume implements PdfResumeGenerator {
 		   return cell;
 	}
 	
-	public static PdfPCell getCell(Phrase phrase) {
+	private static PdfPCell getCell(Phrase phrase) {
 		   PdfPCell cell = new PdfPCell(phrase);
 		   cell.setBorder(0);
 		   return cell;
@@ -339,7 +317,7 @@ public class RevisedResume implements PdfResumeGenerator {
 		  document.add(table);	   
 	  }
 	   
-	public static PdfPCell getDetail(String text, Font font) {
+	private static PdfPCell getDetail(String text, Font font) {
 		   PdfPCell cell= getCell(text, font);
 		   cell.setHorizontalAlignment(Element.ALIGN_MIDDLE);
 		   cell.setIndent(0);
@@ -347,7 +325,7 @@ public class RevisedResume implements PdfResumeGenerator {
 		   return cell;
 	}
 	
-	public static PdfPCell getDetail(Phrase phrase) {
+	private static PdfPCell getDetail(Phrase phrase) {
 		PdfPCell cell = new PdfPCell(phrase);
 		cell.setHorizontalAlignment(Element.ALIGN_MIDDLE);
 		cell.setIndent(0);
@@ -356,14 +334,21 @@ public class RevisedResume implements PdfResumeGenerator {
 		return cell;
 	}
 	   
-	public static PdfPCell getHeader(String text, Font font) {
+	private static PdfPCell getHeader(String text, Font font) {
 		   PdfPCell cell = getCell(text, font);
 		   cell.setHorizontalAlignment(Element.ALIGN_LEFT);
 		   cell.setIndent(15);
 		   return cell;
 	}
 	
-	public static PdfPCell getList(String Header, ArrayList<String> details) {
+	private static PdfPCell getHeader(Phrase phrase) {
+		   PdfPCell cell = getCell(phrase);
+		   cell.setHorizontalAlignment(Element.ALIGN_LEFT);
+		   cell.setIndent(15);
+		   return cell;
+	}
+	
+	private static PdfPCell getList(String Header, ArrayList<String> details) {
 		   PdfPCell newCell = new PdfPCell();
 		   
 		   newCell.setHorizontalAlignment(Element.ALIGN_MIDDLE);
@@ -373,7 +358,7 @@ public class RevisedResume implements PdfResumeGenerator {
 		   return newCell;
 	   }
 	
-	public static void createList(PdfPTable table, ArrayList<String> text, String Header, boolean addBlankLine) {
+	private static void createList(PdfPTable table, ArrayList<String> text, String Header, boolean addBlankLine) {
 		   
 		   //Font font = new Font(FontFamily.HELVETICA, 12);
 		   PdfPCell blank = new PdfPCell();
@@ -382,25 +367,27 @@ public class RevisedResume implements PdfResumeGenerator {
 		   blank.setBorder(0);
 		   blank.setFixedHeight(10f);
 		   
-		   table.addCell(blank);
-		   
-		   List headerList = new List();
+		   //table.addCell(blank);
 		   Phrase ph = new Phrase();
-		   headerList.setListSymbol("\u2022");
-		   headerList.add(new ListItem(15,Header, Normal_Font));
-		   ph.add(headerList);
+		   
+		   if(!Header.isEmpty()) {
+			   List headerList = new List();
+			   headerList.setListSymbol("\u2022");
+			   headerList.add(new ListItem(15,Header, Normal_Font));
+			   ph.add(headerList);
+		   }
 		   
 		   
 		   PdfPCell listHeader = new PdfPCell();
 		   listHeader.setBorder(0);
-		   listHeader.addElement(ph);
+		   if(!Header.isEmpty()) {
+			   listHeader.addElement(ph);
+			   table.addCell(listHeader);
+			   table.addCell(blank);
+		   }
 		  
-		   table.addCell(listHeader);
-		   
-		   table.addCell(blank);
-		   
 		   List list = new List();
-		   list.setListSymbol("-");
+		   list.setListSymbol("- ");
 		   list.setIndentationLeft(25);
 		   
 		   for(String temp: text) {
@@ -421,7 +408,7 @@ public class RevisedResume implements PdfResumeGenerator {
 		   }
 	}
 	
-	public static void createList(PdfPTable table, ArrayList<Phrase> phrase, String Header,boolean addBlankLine, boolean addUrl) {
+	private static void createList(PdfPTable table, ArrayList<Phrase> phrase, String Header,boolean addBlankLine, boolean addUrl) {
 		   
 		   //Font font = new Font(FontFamily.HELVETICA, 12);
 		   PdfPCell blank = new PdfPCell();
@@ -501,15 +488,11 @@ public class RevisedResume implements PdfResumeGenerator {
 		  document.add(table);	   
 	  }
 	
-	public static void addSummary(Document document,  PdfWriter writer, String summary) throws DocumentException{
-		addEmptyLine(document, 5);
-		
+	public static void addSummary(Document document,  PdfWriter writer, ArrayList<String> summary) throws DocumentException{
 		PdfPTable sumTable = new PdfPTable(1);
-		sumTable.setWidthPercentage(95f);
-		PdfPCell summaryText = getDetail(summary, Normal_Font);
-		//summaryText.setIndent(24f);
-		sumTable.addCell(summaryText);
-		sumTable.setSpacingAfter(30f);
+		sumTable.setWidthPercentage(100f);
+		createList(sumTable, summary, "", false);
+		sumTable.setSpacingAfter(10f);
 		
 		document.add(sumTable);
 	} 

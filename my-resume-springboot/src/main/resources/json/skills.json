@@ -2,34 +2,30 @@
 	[		 
 		 	  {
 				"header" : "Languages",
-				"detail":"TSql, Delphi, Java, C#, Python, ASP,Html, Javascript, XML, JSON"
+				"detail": "SQL, Java, Pascal ,C#, Python, Html, CSS,Javascript, XML, JSON, Yaml"
 			  },
 			  {
-				 "header" : "Backend (Yr)",
-				 "detail" : "SQL (5), ASP.net 4.0: MVC, Web Forms & Entity(3) ,Spring MVC & Boot(2)"
+			  	"header":"Database",
+			  	"detail":"Microsoft SQL, Oracle SQL, MySQL, MongoDB"
 			  },
 			  {
-				  "header" : "Frontend (Yr)",
-				  "detail" : "Bootstrap 4 (.5), Angular JS (1), ZK (.5), React (.5), Vue (.5)"
+				 "header" : "Server Fwk:",
+				 "detail" : "ASP.net: MVC, Web Forms & Entity, Spring: MVC & Boot"
 			  },
 			  {
-				  "header" : "OS",
-				  "detail" : "Windows XP/7/10/Server 2008/12, Ubuntu"
+				  "header" : "Client Fwk:",
+				  "detail" : "ReactJs, Redux, Graphql, VueJs, AngularJs, jQuery, Asp, Jsp, Bootstrap, Bulma"
 			  },
 			  {
 				  "header" : "CI/CD",
-				  "detail" : "GitLab, GitHub, Sourcetree, Borland Starteam, Maven, Ant, Gradle"
+				  "detail" : "Git, Jenkins,  Maven, Ant, Gradle, Docker, Npm, Yarn, pip, conda "
 			  },
 			  {
 				  "header" : "Workstation",
-				  "detail" : "MsSQL Mgmt Studio 2008R2/2012, MySQL, Hybris, IBM AS400, VirtualBox, Postman, Beyond Compare, SoapUI, Mongo Compass"
+				  "detail" : "Visual Studio, Eclipse, Visual Studio Code, Notepad++, Delphi, Atom,Intellij IDEA,VirtualBox, Postman, SoapUI"
 			  },
 			  {
 				  "header" : "Apps/Services",
-				  "detail" : "Visual Studio 2008/17, Eclipse Mars/Oxygen, Visual Studio Code, Notepad++, Delphi XE5, Atom, Anaconda, Intellij IDEA, Tomcat"
-			  },
-			  {
-				  "header" : "Hardware",
-				  "detail" : "RJ-45 Cabling, Cisco RIP/IGRP/EIGRP, SATA/PATA replacement, PCI Memory"
+				  "detail" : "Hybris Ecommerce, REST, SOAP, Heroku, Tomcat"
 			  }
 	]

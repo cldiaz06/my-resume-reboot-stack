@@ -8,6 +8,7 @@
 	"phone":"773-732-4404",
 	"email":"cldiaz1066@yahoo.com",
 	"gitUrl":"https://gitlab.com/cldiaz06",
-	"summary":"Experienced, and adaptive engineer who is constantly learning new technologies, and skills to meet clients requirements and expectations.",
+	"summary":["Experienced, and adaptive engineer who is constantly learning new technologies, and skills to meet clients requirements and expectations.",
+	           "second line 2"],
 	"linkedin":"http://www.linkedin.com/in/chrisdiaz1066"
 }

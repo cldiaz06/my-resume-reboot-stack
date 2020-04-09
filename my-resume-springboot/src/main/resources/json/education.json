@@ -1,12 +1,5 @@
 [		 			
 	  	{
-			"startDate" : "2002",
-			"endDate" : "2006",
-			"schoolName" : "St.Patrick High School",
-			"location" : "Chicago, IL",
-			"achievement" : "Diploma"
-	       },
-	  	{
 			"startDate" : "2006",
 			"endDate" : "2012",
 			"schoolName" : "Illinois State University",
@@ -16,54 +9,10 @@
 	       {
 	       	"startDate" : "2017",
 			"endDate" : "current",
-			"schoolName" : "Udemy",
+			"schoolName" : "Udemy Courses",
 			"location" : "Online",
-			"achievement" : "Projects completed and loaded to git repository",
-			"courses":{"course":[
-								 {
-								  "name":"Java Programming Masterclass by Tim Buchalka",
-								  "url":"https://www.udemy.com/course/java-the-complete-java-developer-course/",
-								  "duration":"8 months",
-								  "description":"Refresh existing Java skills, along with new skills with Java 8",
-								  "completed":false			
-			  					 },
-								 {
-								  "name":"Spring & Hibernate for beginners by Chad Darby",
-								  "url":"https://www.udemy.com/course/spring-hibernate-tutorial/",
-								  "duration":"6 months",
-								  "description":"Intro to Spring framework and Hibernate",
-								  "completed":true			
-			  					 },
-			  					 {
-								  "name":"Angular & nodeJS - Mean stack by Max Schwarzmuller",
-								  "url":"https://www.udemy.com/course/angular-2-and-nodejs-the-practical-guide/",
-								  "duration":"4 months",
-								  "description":"Intro MEAN stack & Angular JS.",
-								  "completed":false		
-			                     },			      
-			                     {
-								  "name":"Udemy: Microservice w/ Spring Boot & Spring Cloud",
-								  "url":"https://www.udemy.com/course/microservices-with-spring-boot-and-spring-cloud/",
-								  "duration":"4 months",
-								  "description":"Intro microservices using Spring Framework",
-								  "completed":true		
-			                     },
-			                     {
-								  "name":"Full Stack Proj. Spring Boot, ReactJs, Redux",
-								  "url":"https://www.udemy.com/course/full-stack-project-spring-boot-20-react-redux/",
-								  "duration":"5 months",
-								  "description":"Capstone project with Spring Boot Bk, React+Redux frt, & hosted in Heroku",
-								  "completed":true		
-			                     },
-			                     {
-								  "name":"Python for Data Science & Machine Learning",
-								  "url":"https://www.udemy.com/course/python-for-data-science-and-manchine-learning-bootcamp/",
-								  "duration":" 1/2 month",
-								  "description":"Intro python libraries & machine learning",
-								  "completed":false		
-			                     }
-								]
-					  }
+			"achievement" : "Stay up to date with latest tech, and upload work to git Repository."
+			
 	       
 	       }
 			

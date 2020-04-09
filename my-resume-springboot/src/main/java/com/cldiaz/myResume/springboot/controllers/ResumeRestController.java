@@ -60,8 +60,8 @@ public class ResumeRestController {
 	
 	@Autowired
 	public void setPdfResumeGenerator(ApplicationContext context) {
-		if(config.getTemplate().equals("standard")) {
-			pdfResumeGenerator = (PdfResumeGenerator) context.getBean("standard");
+		if(config.getTemplate().equals("revised")) {
+			pdfResumeGenerator = (PdfResumeGenerator) context.getBean("revised");
 		} else {
 			pdfResumeGenerator = (PdfResumeGenerator) context.getBean("standard");
 		}
