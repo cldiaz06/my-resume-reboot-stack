@@ -117,15 +117,16 @@ public class RevisedResume implements PdfResumeGenerator {
 		PdfPCell rightTable = getCell(null, null);
 		PdfPTable rightHeader = new PdfPTable(1);
 		rightHeader.setHorizontalAlignment(Element.ALIGN_RIGHT);
-		PdfPCell city = new PdfPCell(getCell(basicInfo.getCity() + ", " + basicInfo.getState(), Normal_Font));
-		PdfPCell postal = new PdfPCell(getCell(basicInfo.getPostalcode(), Normal_Font));
+		PdfPCell city = new PdfPCell(getCell(basicInfo.getCity() + ", " + basicInfo.getState() + " " + basicInfo.getPostalcode(), Normal_Font));
+		//PdfPCell postal = new PdfPCell(getCell(basicInfo.getPostalcode(), Normal_Font));
 		PdfPCell phone = new PdfPCell(getCell(basicInfo.getPhone(), Normal_Font));
 		PdfPCell email = new PdfPCell(getCell(basicInfo.getEmail(), Normal_Font));
-		//PdfPCell git_url = new PdfPCell(getCell(basicInfo.getGitUrl(), url, true));
+		PdfPCell git_url = new PdfPCell(getCell(basicInfo.getGitUrl(), url, true));
 		PdfPCell linkedin_url = new PdfPCell(getCell(basicInfo.getLinkedin(), url, true));
+		leftHeader.addCell(gitLabUrl);
 		
 		rightHeader.addCell(city);
-		rightHeader.addCell(postal);
+		//rightHeader.addCell(postal);
 		rightHeader.addCell(phone);
 		rightHeader.addCell(email);
 		//rightHeader.addCell(git_url);
