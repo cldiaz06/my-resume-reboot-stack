@@ -129,7 +129,7 @@ public class RevisedResume implements PdfResumeGenerator {
 		//rightHeader.addCell(postal);
 		rightHeader.addCell(phone);
 		rightHeader.addCell(email);
-		//rightHeader.addCell(git_url);
+		rightHeader.addCell(git_url);
 		rightHeader.addCell(linkedin_url);
 		
 		rightTable.addElement(rightHeader);
