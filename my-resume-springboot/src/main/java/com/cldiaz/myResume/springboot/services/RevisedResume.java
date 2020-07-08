@@ -240,8 +240,11 @@ public class RevisedResume implements PdfResumeGenerator {
 					   Chunk urlText = new Chunk(classtext.getName(), urlList);
 					   urlText.setAnchor(classtext.getUrl());
 					   courseDesc.add(urlText);
-					   courseDesc.add(new Chunk("- " + classtext.getDescription() + " - " + classtext.getDuration(), Normal_Font));
+					   courseDesc.add(new Chunk("- " + classtext.getDescription() + " - " + classtext.getDuration() + " -", Normal_Font));
 					   
+					   Chunk certifUrl = new Chunk(classtext.getCertifcate(), urlList);
+					   certifUrl.setAnchor(classtext.getCertUrl());
+					   courseDesc.add(certifUrl);
 					   //courseDesc = classtext.getName() + "- " + classtext.getDescription() + " - " + classtext.getDuration();
 					   //System.out.println(courseDesc);
 					   courseList.add(courseDesc);
