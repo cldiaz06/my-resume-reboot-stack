@@ -250,7 +250,7 @@ public class RevisedResume implements PdfResumeGenerator {
 					   courseList.add(courseDesc);
 				   }
 				   
-				   createList(eduSet, courseList, " Courses ", false, true);
+				   createList(eduSet, courseList, "", false, true);
 			   }
 		}
 		
@@ -344,6 +344,7 @@ public class RevisedResume implements PdfResumeGenerator {
 		   
 		   //table.addCell(blank);
 		   Phrase ph = new Phrase();
+		   System.out.println(Header.isEmpty());
 		   
 		   if(!Header.isEmpty()) {
 			   List headerList = new List();
@@ -393,21 +394,24 @@ public class RevisedResume implements PdfResumeGenerator {
 		   blank.setFixedHeight(10f);
 		   
 		   table.addCell(blank);
-		   
 		   List headerList = new List();
 		   Phrase ph = new Phrase();
-		   headerList.setListSymbol("\u2022");
-		   headerList.add(new ListItem(15,Header, Normal_Font));
-		   ph.add(headerList);
+		   
+		   if(!Header.isEmpty()) {
+			   headerList.setListSymbol("\u2022");
+			   headerList.add(new ListItem(15,Header, Normal_Font));
+			   ph.add(headerList);
+		   }
 		   
 		   
 		   PdfPCell listHeader = new PdfPCell();
 		   listHeader.setBorder(0);
 		   listHeader.addElement(ph);
 		  
-		   table.addCell(listHeader);
-		   
-		   table.addCell(blank);
+		   if(!Header.isEmpty()) {
+			    table.addCell(listHeader);
+		   		table.addCell(blank);
+		   }
 		   
 		   List list = new List();
 		   list.setListSymbol("- ");
@@ -423,7 +427,7 @@ public class RevisedResume implements PdfResumeGenerator {
 		   listCell.addElement(listPhrase);
 		   table.addCell(listCell);
 		   
-		   if(addBlankLine	) {
+		   if(addBlankLine) {
 			   table.addCell(blank);
 			   table.addCell(blank);
 			   table.addCell(blank);
