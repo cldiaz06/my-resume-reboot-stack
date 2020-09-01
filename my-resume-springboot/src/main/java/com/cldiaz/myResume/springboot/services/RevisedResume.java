@@ -193,6 +193,36 @@ public class RevisedResume implements PdfResumeGenerator {
 			   if(gen.size() > 0) {
 				   createList(experienceSet, gen, "", false);
 			   }
+			   
+			   if(!(temp.getProjDetails() == null)) {
+				   ArrayList<Phrase> projList = new ArrayList<>();
+				   ArrayList<String> projText = new ArrayList<>();
+				   
+				   for(ProjDetail detail: temp.getProjDetails().getProjDetail()) {
+					   if(detail.getUrl() == null) {
+						   String projDetailText = new String();
+						   projDetailText = detail.getName() + " - " + detail.getDescription() + " - " + detail.getDuration();
+						   projText.add(projDetailText);
+					   } else {  
+						   Phrase project = new Phrase();
+						   project.add(getUrl(detail.getName(), detail.getUrl(), urlList));
+						   project.add(new Chunk (" -" + detail.getDescription() + " - " + detail.getDuration(),Normal_Font));
+						   projList.add(project);
+					   }
+				   }
+				   
+				   if(projList.size() > 0) {
+					   createList(experienceSet, projList, " Projects ", true, true, 0f);
+					   projList.clear();
+				   }
+				   
+				   if(projText.size() > 0) {
+					   createList(experienceSet, projText, "", true); 
+					   projText.clear();
+				   }
+			   }
+			   
+			   
 	
 		}
 		
@@ -247,7 +277,7 @@ public class RevisedResume implements PdfResumeGenerator {
 					   courseList.add(courseDesc);
 				   }
 				   
-				   createList(eduSet, courseList, " Courses ", false, true);
+				   createList(eduSet, courseList, " Courses ", false, true, 10f);
 			   }
 		}
 		
@@ -274,6 +304,13 @@ public class RevisedResume implements PdfResumeGenerator {
 		   cell.setBorder(0);
 		   return cell;
 	}
+	
+	public static Chunk getUrl(String text, String urlText, Font font) {
+		Chunk url = new Chunk(text, font);
+		url.setAnchor(urlText);
+		return url;
+	}
+	
 	
 	public static void drawRedLine(Document document, String text, PdfWriter writer) throws DocumentException {
 		 
@@ -380,20 +417,21 @@ public class RevisedResume implements PdfResumeGenerator {
 		   }
 	}
 	
-	private static void createList(PdfPTable table, ArrayList<Phrase> phrase, String Header,boolean addBlankLine, boolean addUrl) {
+	private static void createList(PdfPTable table, ArrayList<Phrase> phrase, String Header,boolean addBlankLine, boolean addUrl, float blankHeight) {
 		   
 		   //Font font = new Font(FontFamily.HELVETICA, 12);
 		   PdfPCell blank = new PdfPCell();
 		   Phrase listPhrase = new Phrase();
 		   listPhrase.setFont(Normal_Font);
 		   blank.setBorder(0);
-		   blank.setFixedHeight(10f);
+		   blank.setFixedHeight(blankHeight);//10f
 		   
 		   table.addCell(blank);
 		   
 		   List headerList = new List();
 		   Phrase ph = new Phrase();
 		   headerList.setListSymbol("\u2022");
+		   headerList.setIndentationLeft(20f);
 		   headerList.add(new ListItem(15,Header, Normal_Font));
 		   ph.add(headerList);
 		   
@@ -420,8 +458,8 @@ public class RevisedResume implements PdfResumeGenerator {
 		   listCell.addElement(listPhrase);
 		   table.addCell(listCell);
 		   
-		   if(addBlankLine	) {
-			   table.addCell(blank);
+		   if(addBlankLine) {
+			   blank.setFixedHeight(10f);
 			   table.addCell(blank);
 			   table.addCell(blank);
 			   table.addCell(blank);

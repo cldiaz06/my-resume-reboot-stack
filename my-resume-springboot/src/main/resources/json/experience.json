@@ -1,4 +1,58 @@
-[		 
+[	
+	{
+	    "startDate":"2017",
+	    "endDate":"Current",
+	    "title":"Full Stack Engineer",
+	    "city":"Chicago",
+	    "company":"Personal Projects",
+	    "state": "IL",
+	    "summary":"Continuously new tech and trends, and upload them to git repository.",
+        "projDetails":{"projDetail":[{
+        							 	"name":"Project Management App",
+        							 	 "url":"https://github.com/cldiaz06/proj-manage-reboot",
+        							 	 "description":"Kanban project board build with React/Redux/Spring Boot",
+        							 	 "duration":"4 months",
+										 "achievement":"App hosted on heroku",
+										 "tech":["Java","Spring Boot", "Javascript", "React", "Redux", "Heroku"] 
+        							 },
+        							 {
+        							 	"name":"Hamburger builder",
+        							 	 "url":" https://github.com/cldiaz06/react-hamburger-builder",
+        							 	 "description":"App for building burger & total price, intro to React/Redux",
+        							 	 "duration":"5 months",
+										 "achievement":"App completed",
+										 "tech":["React","Redux", "Firebase"] 
+        							 },
+        							  {
+        							 	"name":"Exercise Tracker",
+        							 	 "url":"https://github.com/cldiaz06/mern-exercise-tracker",
+        							 	 "description":"App track exercises, intro into MERN stack",
+        							 	 "duration":"2 months",
+										 "achievement":"App completed",
+										 "tech":["React", "NodeJs", "ExpressJs", "NPM", "MongoDb"] 
+        							 },
+        							 {
+        							 	"name":"Angular Posting app",
+        							 	 "url":"https://github.com/cldiaz06/mean-posting-app",
+        							 	 "description":"Posting app, intro into MEAN stack",
+        							 	 "duration":"4 months",
+										 "achievement":"Still in progress",
+										 "tech":["Angular", "NodeJs", "ExpressJs", "NPM", "MongoDb"] 
+        							 },
+        							 {
+        							 	"name":"Affirmation to Calendar web service",
+        							 	 "url":"https://github.com/cldiaz06/affirmRest",
+        							 	 "description":"Web api getting affirmation & post it google calendar",
+        							 	 "duration":"4 months",
+										 "achievement":"App completed",
+										 "tech":["Java","Spring Boot", "Google Calendar Api", "OAuth"] 
+        							 }
+        						
+        				]},
+        "appSupDetails":[],
+        "genDutyDetails":["Learning new tech languages/frameworks, & load them into git repository.",
+                          "Initial interested stacks were Java/Spring & Javascript frameworks. Currently, looking at Python/Django, & Machine learning."]
+    },	 
 	{
 	    "startDate":"2013",
 	    "endDate":"2020",
@@ -6,7 +60,7 @@
 	    "city":"Bedford Park",
 	    "company":"Cintas Uniform Corp",
 	    "state": "IL",
-	    "summary":"Direct Sale and Rent Business goods such as Uniforms & floor mats",
+	    "summary":"",
         "projDetails":{"projDetail":[]},
         "appSupDetails":[],
         "genDutyDetails":["Extended end-of-life support, & saved $300 a year licensing, by upgrading Delphi application code base as the Principal Engineer.",
